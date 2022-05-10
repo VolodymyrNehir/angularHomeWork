@@ -9,7 +9,7 @@ import {IPost} from "../../Models/IPost";
 })
 export class PostsComponent implements OnInit {
 
-  posts: IPost[];
+  posts: IPost[] = [];
   constructor(private postsService: PostsService) { }
 
   ngOnInit(): void {

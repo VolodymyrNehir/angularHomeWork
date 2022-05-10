@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {IPost} from "../../Models/IPost";
 
 @Component({
@@ -7,8 +7,8 @@ import {IPost} from "../../Models/IPost";
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-// @Input()
-// posts:IPost;
+@Input()
+post:IPost | any;
   constructor() { }
 
   ngOnInit(): void {
