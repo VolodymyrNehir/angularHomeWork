@@ -8,7 +8,7 @@ import {IPost} from "../../Models/IPost";
 })
 export class PostComponent implements OnInit {
 @Input()
-post:IPost | any;
+post:IPost;
   constructor() { }
 
   ngOnInit(): void {
