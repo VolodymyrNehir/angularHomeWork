@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IPost} from "../../Models/IPost";
+
+import {PostInterface} from "../../models/post.interface";
 
 @Component({
   selector: 'app-post',
@@ -8,7 +9,7 @@ import {IPost} from "../../Models/IPost";
 })
 export class PostComponent implements OnInit {
 @Input()
-post:IPost;
+post:PostInterface;
   constructor() { }
 
   ngOnInit(): void {
