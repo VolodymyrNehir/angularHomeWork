@@ -7,6 +7,7 @@ import {CommentsComponent} from './components/comments/comments.component';
 import {PostComponent} from './components/post/post.component';
 import {CommentComponent} from './components/comment/comment.component';
 import {RouterModule} from "@angular/router";
+import { PostDetailsComponent } from './components/post-details/post-details.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +15,16 @@ import {RouterModule} from "@angular/router";
     PostsComponent,
     CommentsComponent,
     PostComponent,
-    CommentComponent
+    CommentComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      { path: 'posts', component: PostsComponent },
-      { path: 'comments', component: CommentsComponent }
+      // { path: 'posts', component: PostsComponent },
+      { path: 'comments', component: CommentsComponent },
+      { path: 'posts', component: PostsComponent,
+        children: [{path: ':id', component: PostDetailsComponent}]}
     ])
   ],
   providers: [],
