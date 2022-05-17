@@ -1,1 +1,5 @@
-<p>{{post.title}}</p>
+<p>{{post.id}}
+  {{post.title}}
+  <button [routerLink]="[post.id]" [state]="{data:post}">more</button>
+</p>
+

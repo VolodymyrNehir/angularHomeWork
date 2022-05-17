@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+
 import {PostsInterface} from "../../interface/posts.interface";
 
 @Component({
@@ -7,10 +8,11 @@ import {PostsInterface} from "../../interface/posts.interface";
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-@Input()
-post:PostsInterface;
+  @Input()
+  post: PostsInterface;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
