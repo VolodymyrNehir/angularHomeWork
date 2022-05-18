@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+
 import {CommentInterface} from "../../interface/comment.interface";
 
 @Component({
@@ -7,10 +8,11 @@ import {CommentInterface} from "../../interface/comment.interface";
   styleUrls: ['./comment.component.css']
 })
 export class CommentComponent implements OnInit {
-@Input()
-comment: CommentInterface;
+  @Input()
+  comment: CommentInterface;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

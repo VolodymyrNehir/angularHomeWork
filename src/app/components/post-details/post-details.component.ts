@@ -21,8 +21,5 @@ export class PostDetailsComponent implements OnInit {
       let {state: {data}} = history;
       this.postDetailsObj = data as PostsInterface;
     })
-    // this.activatedRoute.params.subscribe(({id}) => {
-    //   this.postServices.getPost(id).subscribe(value => console.log(value));
-    // });
   }
 }

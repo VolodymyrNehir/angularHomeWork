@@ -1,2 +1,4 @@
-<p>{{comment.id}} <a [routerLink]="[comment.id]"><button>more</button></a></p>
+<p>{{comment.id}} <a [routerLink]="['comment-details/',comment.id]">
+  <button>more</button>
+</a></p>
 <p>{{comment.name}}</p>

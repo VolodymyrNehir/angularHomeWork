@@ -26,7 +26,7 @@ import {CommentDetailsComponent} from './components/comment-details/comment-deta
     BrowserModule,
     RouterModule.forRoot([
       {path: 'comments', component: CommentsComponent,
-        children: [{path: 'id',component: CommentDetailsComponent}]},
+        children: [{path: 'comment-details/:id',component: CommentDetailsComponent}]},
       {
         path: 'posts', component: PostsComponent,
         children: [{path: ':id', component: PostDetailsComponent}]
