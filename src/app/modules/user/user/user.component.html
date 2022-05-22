@@ -1,1 +1,5 @@
-<p>user works!</p>
+<div>
+{{users.id}}:{{users.name}}
+  <a [routerLink]="[users.id]" [state]="{data:users}" ><button>user detailes</button></a>
+</div>
+

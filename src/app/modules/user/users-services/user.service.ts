@@ -17,6 +17,6 @@ export class UserService {
   }
   getByUsers(id:string):Observable<UsersInterface>{
     return this.http
-      .get<UsersInterface>(`${urls.users}/{id}`)
+      .get<UsersInterface>(`${urls.users}/${id}`)
   }
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+
+import {UsersInterface} from "../../../models";
 
 @Component({
   selector: 'app-user',
@@ -6,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  @Input()
+  users: UsersInterface;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
