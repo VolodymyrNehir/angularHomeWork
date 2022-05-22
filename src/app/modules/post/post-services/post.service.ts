@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {CommentInterface} from "../../../models";
 import {Observable} from "rxjs";
+import {PostInterface} from "../../../models";
 import {urls} from "../../../constans/urls";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CommentService {
+export class PostService {
 
   constructor(private http:HttpClient) { }
-  getComments():Observable<CommentInterface[]>{
+  getPosts():Observable<PostInterface[]>{
     return this.http
-      .get<CommentInterface[]>(urls.comments)
+      .get<PostInterface[]>(urls.posts)
   }
-  getComment(id:string):Observable<CommentInterface>{
+  getPost(id:string):Observable<PostInterface>{
     return this.http
-      .get<CommentInterface>(`${urls.comments}id`)
+      .get<PostInterface>(`${urls.posts}/id`)
   }
 }
