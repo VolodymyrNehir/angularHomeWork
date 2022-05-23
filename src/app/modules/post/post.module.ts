@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { PostRoutingModule } from './post-routing.module';
-import { PostsComponent } from './posts-components/posts/posts.component';
-import { PostComponent } from './posts-components/post/post.component';
-import { PostDetailesComponent } from './posts-components/post-detailes/post-detailes.component';
+import {PostRoutingModule} from './post-routing.module';
+import {PostsComponent} from './posts-components/posts/posts.component';
+import {PostComponent} from './posts-components/post/post.component';
+import {PostDetailesComponent} from './posts-components/post-detailes/post-detailes.component';
 
 
 @NgModule({
@@ -18,4 +18,5 @@ import { PostDetailesComponent } from './posts-components/post-detailes/post-det
     PostRoutingModule
   ]
 })
-export class PostModule { }
+export class PostModule {
+}

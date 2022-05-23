@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { UserRoutingModule } from './user-routing.module';
+import {UserRoutingModule} from './user-routing.module';
 import {UserComponent} from "./user/user.component";
 import {UsersComponent} from "./users/users.component";
 import {UserDetailesComponent} from "./user-detailes/user-detailes.component";
@@ -18,4 +18,5 @@ import {UserDetailesComponent} from "./user-detailes/user-detailes.component";
     UserRoutingModule
   ]
 })
-export class UserModule { }
+export class UserModule {
+}

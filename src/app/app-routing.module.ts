@@ -1,20 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
+
 import {HomeComponent} from "./app-components/home/home.component";
 
 let routes: Routes = [
   {
-    path: '',  component: HomeComponent
+    path: '', component: HomeComponent
   },
   {
-    path: 'user', loadChildren: ()=> import('./modules/user/user.module').then(m => m.UserModule)
+    path: 'user', loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)
   },
   {
-    path: 'post',loadChildren: ()=> import('./modules/post/post.module').then(value => value.PostModule)
+    path: 'post', loadChildren: () => import('./modules/post/post.module').then(value => value.PostModule)
   },
   {
-    path: 'comment',loadChildren: ()=> import('./modules/comment/comment.module').then(value => value.CommentModule)
+    path: 'comments', loadChildren: () => import('./modules/comment/comment.module').then(value => value.CommentModule)
   }
 ];
 
@@ -23,8 +23,9 @@ let routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
   ],
-  exports:[
+  exports: [
     RouterModule
   ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
