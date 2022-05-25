@@ -5,6 +5,8 @@ import {PostRoutingModule} from './post-routing.module';
 import {PostsComponent} from './posts-components/posts/posts.component';
 import {PostComponent} from './posts-components/post/post.component';
 import {PostDetailesComponent} from './posts-components/post-detailes/post-detailes.component';
+import {PostResolver} from "./post-services/resolvers/post.resolver";
+import {PostsResolver} from "./post-services/resolvers/posts.resolver";
 
 
 @NgModule({
@@ -16,6 +18,10 @@ import {PostDetailesComponent} from './posts-components/post-detailes/post-detai
   imports: [
     CommonModule,
     PostRoutingModule
+  ],
+  providers:[
+    PostResolver,
+    PostsResolver
   ]
 })
 export class PostModule {

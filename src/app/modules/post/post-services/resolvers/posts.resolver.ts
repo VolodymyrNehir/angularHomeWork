@@ -5,12 +5,18 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import {PostInterface} from "../../../../models";
+import {PostService} from "../post.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class PostsResolver implements Resolve<boolean> {
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return of(true);
+export class PostsResolver implements Resolve<PostInterface[]> {
+
+  constructor(private postService:PostService) {
+  }
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<PostInterface[]> | Promise<PostInterface[]> | PostInterface[] {
+    return this.postService.getPosts();
   }
 }

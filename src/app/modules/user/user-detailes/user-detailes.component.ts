@@ -21,7 +21,8 @@ export class UserDetailesComponent implements OnInit {
       if (state) {
         this.user = state
       } else {
-        this.userService.getByUsers(id).subscribe(value => this.user = value)
+        this.activatedRoute.data.subscribe(({userData}) =>
+          this.user = userData);
       }
     })
   }

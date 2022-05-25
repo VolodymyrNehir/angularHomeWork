@@ -4,13 +4,19 @@ import {HttpClientModule} from "@angular/common/http";
 
 import {UsersComponent} from "./users/users.component";
 import {UserDetailesComponent} from "./user-detailes/user-detailes.component";
+// import {UserResolver} from "./users-services/resolvers/user.resolver";
+import {UsersResolver} from "./users-services/resolvers/users.resolver";
+import {UserResolver} from "./users-services/resolvers/user.resolver";
+import {UserGuard} from "./users-services/resolvers/guard/user.guard";
 
 const routes: Routes = [
   {
     path: '', component: UsersComponent,
+    resolve:{userData:UsersResolver},
+    canActivate:[UserGuard],
     children: [
       {
-        path: ':id', component: UserDetailesComponent
+        path: ':id', component: UserDetailesComponent, resolve:{userData: UserResolver}
       }
     ]
   }

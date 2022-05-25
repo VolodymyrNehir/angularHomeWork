@@ -12,11 +12,13 @@ import {UserService} from "../users-services/user.service";
 export class UsersComponent implements OnInit {
   users: UsersInterface[];
 
-  constructor(private usersServices: UserService) {
-  }
+  constructor(private usersServices: UserService, private activatedRoute: ActivatedRoute) {
+  };
 
   ngOnInit(): void {
-    this.usersServices.getUsers().subscribe(value => this.users = value)
+    this.activatedRoute.data.subscribe(({userData}) =>
+      this.users = userData
+    );
   }
 
 }

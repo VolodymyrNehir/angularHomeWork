@@ -12,7 +12,7 @@ import {PostInterface} from "../../../../models";
 export class PostDetailesComponent implements OnInit {
   post: PostInterface;
 
-  constructor(private activatedRoute: ActivatedRoute, private postService: PostService, private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private postService: PostService) {
   }
 
   ngOnInit(): void {
@@ -21,7 +21,8 @@ export class PostDetailesComponent implements OnInit {
       if (state) {
         this.post = state
       } else {
-        this.postService.getPost(id).subscribe(value => this.post = value)
+        this.activatedRoute.data.subscribe(({postData}) =>
+          this.post = postData);
       }
     })
   }

@@ -18,6 +18,6 @@ export class PostService {
   }
   getPost(id: string): Observable<PostInterface> {
     return this.http
-      .get<PostInterface>(`${urls.posts}/id`)
+      .get<PostInterface>(`${urls.posts}/`+ `${id}`)
   }
 }

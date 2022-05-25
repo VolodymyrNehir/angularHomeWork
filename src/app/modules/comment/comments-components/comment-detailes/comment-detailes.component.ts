@@ -21,7 +21,9 @@ export class CommentDetailesComponent implements OnInit {
       if (state) {
         this.comment = state
       } else {
-        this.commentService.getComment(id).subscribe(value => this.comment = value)
+        this.activatedRoute.data.subscribe(({commentData}) =>
+          this.comment = commentData
+        );
       }
     })
   }

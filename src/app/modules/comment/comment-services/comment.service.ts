@@ -20,6 +20,6 @@ export class CommentService {
 
   getComment(id: string): Observable<CommentInterface> {
     return this.http
-      .get<CommentInterface>(`${urls.comments}id`)
+      .get<CommentInterface>(`${urls.comments}`+'/'+`${id}`)
   }
 }
