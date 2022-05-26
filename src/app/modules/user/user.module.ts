@@ -2,9 +2,9 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {UserRoutingModule} from './user-routing.module';
-import {UserComponent} from "./user/user.component";
-import {UsersComponent} from "./users/users.component";
-import {UserDetailesComponent} from "./user-detailes/user-detailes.component";
+import {UserComponent} from "./user-component/user/user.component";
+import {UsersComponent} from "./user-component/users/users.component";
+import {UserDetailesComponent} from "./user-component/user-detailes/user-detailes.component";
 import {UserResolver} from "./users-services/resolvers/user.resolver";
 import {UsersResolver} from "./users-services/resolvers/users.resolver";
 
