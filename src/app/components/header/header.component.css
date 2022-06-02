@@ -1,0 +1,16 @@
+.container{
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
+  height: 100px;
+  background: burlywood;
+  align-items: center;
+}
+a{
+  cursor: default;
+  text-decoration: none;
+  color: snow;
+}
+a:hover{
+  color: silver;
+}
