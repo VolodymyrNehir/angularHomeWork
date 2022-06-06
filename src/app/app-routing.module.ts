@@ -1,12 +1,19 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {HeaderComponent} from "./components/header/header.component";
 import {MainLayoutComponent} from "./layouts/main-layout/main-layout.component";
+import {LoginComponent} from "./components/login/login.component";
+import {RegisterComponent} from "./components/register/register.component";
+import {CarsComponent} from "./components/cars/cars.component";
 
-const routes:Routes =[
+const routes: Routes = [
   {
-    path: '', component: MainLayoutComponent
+    path: '', component: MainLayoutComponent, children: [
+      {path: 'login', component: LoginComponent},
+      {path: 'register', component: RegisterComponent},
+      {path: 'cars', component: CarsComponent}
+    ]
   }
 ]
 
@@ -14,11 +21,12 @@ const routes:Routes =[
   declarations: [],
   imports: [
     CommonModule,
-      RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes)
   ],
-  exports:[
+  exports: [
     RouterModule
   ]
 })
 
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
