@@ -1,1 +1,13 @@
 <p>register works!</p>
+<form [formGroup]="form">
+  <div>
+    <label>username<input type="text" formControlName="username"></label>
+  </div>
+  <div>
+    <label>password<input type="password" formControlName="password"></label>
+  </div>
+  <div>
+    <label>confirmPassword<input type="password" formControlName="confirmPassword"></label>
+  </div>
+<button [disabled]="form.invalid" (click)="register()" >save</button>
+</form>

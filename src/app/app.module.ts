@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import {AppRoutingModule} from "./app-routing.module";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {AppRoutingModule} from "./app-routing.module";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
