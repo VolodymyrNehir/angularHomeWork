@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validator, Validators} from "@angular/forms";
+import {AuthService} from "../../services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -8,8 +10,9 @@ import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validator, Va
 })
 export class RegisterComponent implements OnInit {
 form: FormGroup;
+  userNameError: string;
 uf: null;
-  constructor() {
+  constructor( private authService:AuthService, private router:Router) {
     this.createForm();
   }
 
@@ -25,7 +28,13 @@ uf: null;
   }
 
   register() {
-    console.log(this.form)
+    const rawValue = this.form.getRawValue();
+    delete rawValue.confirmPassword;
+    this.authService.register(rawValue).subscribe(()=>{
+      this.router.navigate(['login'])
+    },
+      e => this.userNameError = e.error.username[0]
+    )
   };
   checkPasswords(form:AbstractControl): ValidationErrors | null{
     const password = form.get('password')
