@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {IUser} from "../interface";
+import {IToken, IUser} from "../interface";
 import {Observable} from "rxjs";
 import {urls} from "../contents/urls";
 
@@ -14,4 +14,9 @@ export class AuthService {
   register(user: IUser): Observable<IUser> {
     return this.httpClient.post<IUser>(urls.users, user)
   }
+
+  login(user:IUser): Observable<IToken>{
+    return this.httpClient.post<IToken>(urls.auth, user)
+  }
+
 }

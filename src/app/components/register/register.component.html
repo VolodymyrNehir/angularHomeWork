@@ -3,6 +3,7 @@
   <div>
     <label>username<input type="text" formControlName="username"></label>
   </div>
+  <span *ngFor="userNameError">{{userNameError}}</span>
   <div>
     <label>password<input type="password" formControlName="password"></label>
   </div>
