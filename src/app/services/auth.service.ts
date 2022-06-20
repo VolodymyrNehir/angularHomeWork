@@ -7,7 +7,10 @@ import {urls} from "../contents/urls";
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
+
+  private accessTokenKey = 'access'
 
   constructor(private httpClient:HttpClient) { }
 
@@ -17,6 +20,14 @@ export class AuthService {
 
   login(user:IUser): Observable<IToken>{
     return this.httpClient.post<IToken>(urls.auth, user)
+  }
+
+  setToken(token:IToken):void{
+    localStorage.setItem(this.accessTokenKey, token.access)
+  }
+
+  isAuthorization():boolean {
+    return !!localStorage.getItem(this.accessTokenKey)
   }
 
 }
