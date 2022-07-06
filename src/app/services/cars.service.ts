@@ -27,7 +27,7 @@ export class CarsService {
     return this.httpClient.delete<void>(`${urls.cars}/${id}`)
   }
 
-  updateById(id:string, carPartial:Partial<ICar>): Observable<ICar>{
-    return this.httpClient.put<ICar>(`${urls.cars}/${id}`,carPartial)
+  updateById(id:number, carForUpdate:Partial<ICar>): Observable<ICar>{
+    return this.httpClient.patch<ICar>(`${urls.cars}/${id}`,carForUpdate)
   }
 }

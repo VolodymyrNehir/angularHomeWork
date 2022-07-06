@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ICar} from "../../interface";
-import {FormGroup} from "@angular/forms";
+// import {FormGroup} from "@angular/forms";
 import {CarsService} from "../../services";
+
 
 @Component({
   selector: 'app-cars',
@@ -13,10 +15,12 @@ export class CarsComponent implements OnInit {
   form: FormGroup;
   carForUpdate: ICar | null;
 
+
   constructor(private carsService:CarsService) { }
 
   ngOnInit(): void {
     this.carsService.getAll().subscribe(cars => this.cars = cars )
+    console.log(this.carForUpdate)
   }
 
   save() {
