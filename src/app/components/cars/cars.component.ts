@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ICar} from "../../interface";
-// import {FormGroup} from "@angular/forms";
 import {CarsService} from "../../services";
+import {RegEx} from '../../contents/index';
+
 
 
 @Component({
@@ -16,11 +17,13 @@ export class CarsComponent implements OnInit {
   carForUpdate: ICar | null;
 
 
-  constructor(private carsService:CarsService) { }
+  constructor(private carsService:CarsService) {
+    this.createForm()
+  }
 
   ngOnInit(): void {
-    this.carsService.getAll().subscribe(cars => this.cars = cars )
-    console.log(this.carForUpdate)
+    this.carsService.getAll().subscribe(cars => console.log(cars) )
+
   }
 
   save() {
@@ -37,6 +40,15 @@ export class CarsComponent implements OnInit {
       })
     }
   }
+
+  createForm(): void{
+    this.form = new FormGroup({
+      model: new FormControl(null, [Validators.pattern(RegEx.model)]),
+      year: new FormControl(1990,[Validators.min(1990), Validators.max(new Date().getFullYear())]),
+      price: new FormControl(0,[Validators.min(0)])
+    })
+  }
+
   update(cars: ICar): void {
     this.carForUpdate = cars
     this.form.setValue({model: cars.model, year: cars.year, price: cars.price})

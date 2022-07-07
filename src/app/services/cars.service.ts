@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ICar} from "../interface";
 import {Observable} from "rxjs";
+
 import {urls} from "../contents/urls";
+import {ICar} from "../interface";
 
 @Injectable({
   providedIn: 'root'
@@ -11,23 +12,23 @@ export class CarsService {
 
   constructor( private httpClient:HttpClient) { }
 
-  create(car:ICar): Observable<ICar>{
+  create(car: ICar): Observable<ICar> {
     return this.httpClient.post<ICar>(urls.cars, car)
   }
 
-  getAll(): Observable<ICar[]>{
+  getAll(): Observable<ICar[]> {
     return this.httpClient.get<ICar[]>(urls.cars)
   }
 
-  getById(id:string):Observable<ICar>{
+  getById(id: string): Observable<ICar> {
     return this.httpClient.get<ICar>(`${urls.cars}/${id}`)
   }
 
-  deleteById(id:number): Observable<void>{
+  deleteById(id: number): Observable<void> {
     return this.httpClient.delete<void>(`${urls.cars}/${id}`)
   }
 
-  updateById(id:number, carForUpdate:Partial<ICar>): Observable<ICar>{
-    return this.httpClient.patch<ICar>(`${urls.cars}/${id}`,carForUpdate)
+  updateById(id: number | undefined, carForUpdate: Partial<ICar>): Observable<ICar> {
+    return this.httpClient.patch<ICar>(`${urls.cars}/${id}`, carForUpdate)
   }
 }
