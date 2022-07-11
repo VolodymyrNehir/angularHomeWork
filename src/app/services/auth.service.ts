@@ -1,20 +1,27 @@
-import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {IToken, IUser} from "../interface";
-import {Observable, tap} from "rxjs";
-import {urls} from "../contents/urls";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable, tap} from 'rxjs';
+
+import {IToken, IUser} from '../interfaces';
+import {urls} from '../contants';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class AuthService {
-
   private accessTokenKey = 'access'
   private refreshTokenKey = 'refresh'
 
+  constructor(private httpClient: HttpClient) {
+  }
 
-  constructor(private httpClient:HttpClient) { }
+  register(user: IUser): Observable<IUser> {
+    return this.httpClient.post<IUser>(urls.users, user)
+  }
+
+  login(user: IUser): Observable<IToken> {
+    return this.httpClient.post<IToken>(urls.auth, user)
+  }
 
   refresh(): Observable<IToken> {
     const refresh = this.getRefreshToken();
@@ -26,13 +33,6 @@ export class AuthService {
     )
   }
 
-  register(user: IUser): Observable<IUser> {
-    return this.httpClient.post<IUser>(urls.users, user)
-  }
-
-  login(user:IUser): Observable<IToken>{
-    return this.httpClient.post<IToken>(urls.auth, user)
-  }
   setToken(token: IToken): void {
     localStorage.setItem(this.accessTokenKey, token.access)
     localStorage.setItem(this.refreshTokenKey, token.refresh)
